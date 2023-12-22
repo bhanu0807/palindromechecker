@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>Palindrome Checker</title>
+    <style>
+        #palindrome{
+            color:white;
+        }
+        #card{
+            margin: 10px;
+            border: 1px solid #4CAF50;
+            padding: 20px
+        }
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-color: #0a0a23;
+        }
+
+        #result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;
+    padding: 10px 0;
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 20px 
+px
+;
+}">Is it a Palindrome?</h1>
+
+
+    <div id="card" style="width: min(100vw, 450px);
+    min-height: 100px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 20px;
+    margin: 10px 0;
+    background-color: white;
+    box-shadow: 0 6px 6px #002ead;">
+    <label for="text-input" style="color: #0a0a23;
+    margin-bottom: 20px;">Enter in text to check for a palindrome:</label>
+    <input type="text" id="text-input" style="height: 30px;
+    width: 250px;
+    text-align: center;
+    font-size: 1.2rem;
+    margin: 10px;
+    border: none;
+    border-bottom: 2px solid #5a01a7;">
+    <button id="check-btn"style="
+    width: 90px;
+    border: none;
+    padding: 10px;
+    border-radius: 15px;
+    background-color: #5a01a7;
+    color: #fff;
+    cursor: pointer;">Check</button>
+    <div id="result" style="overflow-y: auto;
+    word-wrap: break-word;
+    min-height: 50px;
+    color: black;"></div>
+</div>
+<div class="palindrome-defination-div" 
+    style=" width: min(100vw, 450px);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #0a0a23;
+    color: #ffffff;
+    font-size: 1.3rem;
+    min-height: 140px;
+    background-color: #00471b;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;" >
+    <p class ="palindrome-defination" style ="vertical-align: middle;
+    text-align: center;">
+        <span role="img" aria-label="light-bulb"></span>
+        A 
+        <dfn>palindrome</dfn> is a word or sentence that's spelled the same way both forward and backward, ignoring punctuation, case and spacing."
+        </p></div>
+    <script>
+        // document.getElementById('check-btn').addEventListener('click', function () {
+           
+        //     // const inputValue = document.getElementById('text-input').value.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+        //                 const inputValue = document.getElementById('text-input').value.replace(/[\W_]/g, '').toLowerCase()
+
+        //     if (inputValue === '') {
+        //         alert('Please input a value');
+        //         return;
+        //     }
+
+        //     const isPalindrome = checkPalindrome(inputValue);
+
+        //     const resultElement = document.getElementById('result');
+        //     resultElement.textContent = `${inputValue} is ${isPalindrome ? '' : 'not '}a palindrome`;
+        // });
+
+        // function checkPalindrome(str) {
+        //     const reversedStr = str.split('').reverse().join('');
+        //     return str === reversedStr;
+        // }
+
+
+
+
+    document.getElementById('check-btn').addEventListener('click', function () {
+        const inputValue = document.getElementById('text-input').value.toLowerCase();
+        const cleanedInputValue = inputValue.replace(/[^a-z0-9]/g, '');
+
+        if (cleanedInputValue === '') {
+            alert('Please input a value');
+            return;
+        }
+
+        const isPalindrome = checkPalindrome(cleanedInputValue);
+
+        const resultElement = document.getElementById('result');
+        resultElement.textContent = `${inputValue} is ${isPalindrome ? '' : 'not '}a palindrome`;
+    });
+
+    function checkPalindrome(str) {
+        const reversedStr = str.split('').reverse().join('');
+        return str === reversedStr;
+    }
+    </script>
+</body>
+</html>
